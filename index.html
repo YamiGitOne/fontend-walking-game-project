@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walking Game Yamii</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+  <section>
+  <div class="container">
+      <div class="col-lg">
+        <h1 class="mt-5 text-center text-white">Walking Game</h1>
+        <div id="game-container"></div> 
+      </div>
+
+        <div class="container form-container">
+        <form id="game-form" class="mb-3">
+          <div class="row">
+            <label for="game-width" class="form-label game-white-label">Ancho del mapa:</label>
+            <input type="number" id="game-width" class="form-control" min="1" required>
+            <label for="game-height" class="form-label game-white-label">Altura del mapa:</label>
+            <input type="number" id="game-height" class="form-control" min="1" required>
+          </div>
+
+          <h3 class="mt-3 game-white-label">Agregar o Mover Personaje</h3>
+          <div class="modal fade" id="choosePlayerModal" tabindex="-1" aria-labelledby="choosePlayerLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-title choose-player">
+                  <div class="container">
+                  <div class="row">
+                    <div class="col-10">
+                  <h5 class="modal-title" id="choosePlayerLabel">Choose <strong>your Player</strong></h5>
+                </div>
+                  <div class="col-1">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div> 
+              </div>
+              </div>
+                </div>
+                <div class="modal-body">
+                  <div id="player-container" class="row">
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" id="savePlayer" class="btn btn-primary">Save Changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+              <div class="row">
+                  <div class="col-md-6">
+                      <label for="player-username" class="form-label text-white">Nombre del Personaje:</label>
+                      <input type="text" id="player-username" class="form-control" placeholder="Nombre del personaje">
+                  </div>
+                  <div class="col-md-3">
+                      <label for="move-row" class="form-label text-white">Fila:</label>
+                      <input type="number" id="move-row" class="form-control" placeholder="Fila">
+                  </div>
+                  <div class="col-md-3">
+                      <label for="move-column" class="form-label text-white">Columna:</label>
+                      <input type="number" id="move-column" class="form-control" placeholder="Columna">
+                  </div>
+              </div>
+                  <button type="submit" class="btn btn-primary mt-3 w-100">Crear Juego</button>
+              <div>
+                <button type="button" class="btn btn-secondary mt-3 w-100" data-bs-toggle="modal" data-bs-target="#choosePlayerModal">
+                  Seleccionar Jugador
+                </button>
+                <button id="deletePlayer" class="btn btn-danger mt-3 w-100" data-bs-toggle="modal" data-bs-target="#deletePlayerModal">
+                  Eliminar Jugador
+              </button>              
+              </div>
+            </form>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container grid-container">
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-6">
+              <pre id="gameInfoOutput"></pre>
+          </div>
+          <div class="col-md-3"></div>
+            <button class="btn btn-outline-light mt-3 w-100" id="testGameInfo">Obtener más información del juego</button>
+            <pre id="gameInfoOutput" class="mt-3"></pre>
+            <pre id="output" class="mt-3 h-full"></pre>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="modal fade" id="deletePlayerModal" tabindex="-1" aria-labelledby="deletePlayerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deletePlayerModalLabel">Confirmar Eliminación</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Introduce el nombre del jugador que deseas eliminar:</p>
+                <input type="text" id="deletePlayerInput" class="form-control" placeholder="Nombre del Jugador">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button id="confirmDeletePlayerButton" type="button" class="btn btn-danger">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="./js/api.js" type="module"></script>
+    <script src="./js/main.js" type="module"></script>
+    <script src="./js/messages.js" type="module"></script>
+</body>
+</html>

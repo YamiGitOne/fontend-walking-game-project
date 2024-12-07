@@ -1,0 +1,38 @@
+{
+    "players": [
+      {
+        "id": 1,
+        "name": "TheBestPlayer",
+        "image": "./images/cardImage1.png"
+      },
+      {
+        "id": 2,
+        "name": "Yamii",
+        "image": "./images/cardImage2.png"
+      },
+      {
+        "id": 3,
+        "name": "Player 3",
+        "image": "./images/cardImage3.png"
+      },
+      {
+        "id": 4,
+        "name": "Player 4",
+        "image": "./images/cardImage4.png"
+      },
+      {
+        "id": 5,
+        "name": "Player 5",
+        "image": "./images/cardImage5.png"
+      },
+      {
+        "id": 6,
+        "name": "Player 6",
+        "image": "./images/cardImage6.png"
+      }
+    ]
+  }
+  
+  
+  
+  
